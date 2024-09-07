@@ -98,6 +98,10 @@ function blob_fixup() {
             llvm-strip --strip-debug "${2}"
             grep -q "libpiex_shim.so" "${2}" || "${PATCHELF}" --add-needed "libpiex_shim.so" "${2}"
             ;;
+        vendor/lib64/libwvhidl.so | vendor/lib64/mediadrm/libwvdrmengine.so)
+            [ "$2" = "" ] && return 0
+            "${PATCHELF}" --replace-needed "libcrypto.so" "libcrypto-v33.so" "${2}"
+            ;;
         *)
             return 1
             ;;

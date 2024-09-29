@@ -524,5 +524,6 @@ PRODUCT_PACKAGES += \
     firmware_WCNSS_qcom_cfg.ini_symlink
 
 # Inherit from proprietary targets
-$(call inherit-product, vendor/xiaomi/veux/veux-vendor.mk)
-$(call inherit-product, vendor/xiaomi/miuicamera-veux/MiuiCamera-veux.mk)
+# Inherit the proprietary files
+$(call inherit-product, vendor/xiaomi/msm8953-common/msm8953-common-vendor.mk)
+$(call inherit-product, vendor/xiaomi/tissot/tissot-vendor.mk)

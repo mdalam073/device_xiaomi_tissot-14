@@ -11,18 +11,14 @@ BUILD_BROKEN_DUP_RULES := true
 BUILD_BROKEN_ELF_PREBUILT_PRODUCT_COPY_FILES := true
 
 # A/B
-AB_OTA_UPDATER := true
-AB_OTA_PARTITIONS := \
+AB_OTA_PARTITIONS += \
     boot \
-    dtbo \
-    odm \
-    product \
-    system \
-    system_ext \
-    vbmeta \
-    vbmeta_system \
-    vendor \
-    vendor_boot
+    system
+
+# Treble
+PRODUCT_FULL_TREBLE_OVERRIDE := true
+BOARD_VNDK_VERSION := current
+NEED_AIDL_NDK_PLATFORM_BACKEND := true
 
 # Architecture
 TARGET_ARCH := arm64
@@ -63,13 +59,26 @@ TARGET_BOOTLOADER_BOARD_NAME := msm8953
 TARGET_NO_BOOTLOADER := true
 
 # Camera
-TARGET_CAMERA_OVERRIDE_FORMAT_FROM_RESERVED := true
+USE_DEVICE_SPECIFIC_CAMERA := true
+TARGET_USES_QTI_CAMERA_DEVICE := true
+BOARD_QTI_CAMERA_32BIT_ONLY := true
+MALLOC_SVELTE_FOR_LIBC32 := true
 
 # Display
+TARGET_USES_ION := true
+TARGET_USES_GRALLOC1 := true
+TARGET_USES_HWC2 := true
+NUM_FRAMEBUFFER_SURFACE_BUFFERS := 3
 TARGET_SCREEN_DENSITY := 440
 
 # Filesystem
 TARGET_FS_CONFIG_GEN := $(DEVICE_PATH)/config.fs
+BOARD_USES_RECOVERY_AS_BOOT := true
+TARGET_NO_RECOVERY := true
+
+# Init
+TARGET_INIT_VENDOR_LIB := //$(COMMON_PATH):libinit_msm8953
+TARGET_RECOVERY_DEVICE_MODULES := libinit_msm8953
 
 # GNSS
 BOARD_VENDOR_QCOM_GPS_LOC_API_HARDWARE := default

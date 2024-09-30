@@ -63,6 +63,14 @@ USE_DEVICE_SPECIFIC_CAMERA := true
 TARGET_USES_QTI_CAMERA_DEVICE := true
 BOARD_QTI_CAMERA_32BIT_ONLY := true
 MALLOC_SVELTE_FOR_LIBC32 := true
+# Camera
+TARGET_SUPPORT_HAL1 := false
+
+# Power
+TARGET_TAP_TO_WAKE_NODE := "/proc/touchpanel/enable_dt2w"
+
+# Security Patch Level
+VENDOR_SECURITY_PATCH := $(PLATFORM_SECURITY_PATCH)
 
 # Display
 TARGET_USES_ION := true
@@ -128,7 +136,7 @@ BOARD_ROOT_EXTRA_SYMLINKS := \
     /vendor/dsp:/dsp \
     /vendor/firmware_mnt:/firmware \
     /mnt/vendor/persist:/persist
-
+BOARD_USERDATAIMAGE_PARTITION_SIZE := 55087422464 # 25765059584 - 16384
 
 # Platform
 BOARD_USES_QCOM_HARDWARE := true

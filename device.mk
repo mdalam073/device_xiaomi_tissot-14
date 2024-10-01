@@ -516,9 +516,6 @@ PRODUCT_PACKAGES += \
     libwfdaac_vendor \
     vendor.qti.hardware.display.config-V5-ndk
 
-PRODUCT_BOOT_JARS += \
-    WfdCommon
-
 # WiFi firmware symlink
 PRODUCT_PACKAGES += \
     firmware_WCNSS_qcom_cfg.ini_symlink

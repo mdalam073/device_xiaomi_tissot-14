@@ -11,9 +11,18 @@ BUILD_BROKEN_DUP_RULES := true
 BUILD_BROKEN_ELF_PREBUILT_PRODUCT_COPY_FILES := true
 
 # A/B
-AB_OTA_PARTITIONS += \
+AB_OTA_UPDATER := true
+AB_OTA_PARTITIONS := \
     boot \
-    system
+    dtbo \
+    odm \
+    product \
+    system \
+    system_ext \
+    vbmeta \
+    vbmeta_system \
+    vendor \
+    vendor_boot
 
 # Treble
 PRODUCT_FULL_TREBLE_OVERRIDE := true

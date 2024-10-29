@@ -14,7 +14,7 @@
 # limitations under the License.
 #
 
-DEVICE_PATH := device/xiaomi/mido
+DEVICE_PATH := device/xiaomi/tissot
 
 # Build restriction bypass
 BUILD_BROKEN_DUP_RULES := true
@@ -48,7 +48,7 @@ TARGET_SYSTEM_PROP := $(DEVICE_PATH)/system.prop
 TARGET_VENDOR_PROP := $(DEVICE_PATH)/vendor.prop
 
 # Kernel
-TARGET_KERNEL_CONFIG := mido_defconfig
+TARGET_KERNEL_CONFIG := tissot_defconfig
 BOARD_KERNEL_BASE := 0x80000000
 BOARD_KERNEL_CMDLINE := androidboot.hardware=qcom msm_rtb.filter=0x237 ehci-hcd.park=3 lpm_levels.sleep_disabled=1 androidboot.bootdevice=7824900.sdhci earlycon=msm_hsl_uart,0x78af000 loop.max_part=16 androidboot.usbconfigfs=true
 BOARD_KERNEL_CMDLINE += androidboot.android_dt_dir=/non-existent androidboot.boot_devices=soc/7824900.sdhci
@@ -58,7 +58,7 @@ BOARD_MKBOOTIMG_ARGS := --ramdisk_offset 0x01000000 --tags_offset 0x00000100
 TARGET_KERNEL_CLANG_COMPILE := true
 TARGET_KERNEL_CLANG_VERSION := proton
 TARGET_KERNEL_CLANG_PATH := $(shell pwd)/prebuilts/clang/host/linux-x86/clang-proton
-TARGET_KERNEL_SOURCE := kernel/xiaomi/mido
+TARGET_KERNEL_SOURCE := kernel/xiaomi/tissot
 TARGET_KERNEL_VERSION := 4.9
 
 # ANT
@@ -129,8 +129,8 @@ DEVICE_MANIFEST_FILE := $(DEVICE_PATH)/manifest.xml
 DEVICE_MATRIX_FILE   := $(DEVICE_PATH)/compatibility_matrix.xml
 
 # Init
-TARGET_INIT_VENDOR_LIB := //$(DEVICE_PATH):libinit_mido
-TARGET_RECOVERY_DEVICE_MODULES := libinit_mido
+TARGET_INIT_VENDOR_LIB := //$(DEVICE_PATH):libinit_tissot
+TARGET_RECOVERY_DEVICE_MODULES := libinit_tissot
 
 # IPA
 USE_DEVICE_SPECIFIC_DATA_IPA_CFG_MGR := true
@@ -154,9 +154,9 @@ BOARD_SUPER_PARTITION_METADATA_DEVICE := system
 BOARD_SUPER_PARTITION_CUST_DEVICE_SIZE := 872415232
 BOARD_SUPER_PARTITION_SYSTEM_DEVICE_SIZE := 3221225472
 BOARD_SUPER_PARTITION_SIZE := $(shell expr $(BOARD_SUPER_PARTITION_CUST_DEVICE_SIZE) + $(BOARD_SUPER_PARTITION_SYSTEM_DEVICE_SIZE) )
-BOARD_SUPER_PARTITION_GROUPS := mido_dynamic_partitions
-BOARD_MIDO_DYNAMIC_PARTITIONS_SIZE := $(shell expr $(BOARD_SUPER_PARTITION_SIZE) - 4194304 )
-BOARD_MIDO_DYNAMIC_PARTITIONS_PARTITION_LIST := odm product system system_ext vendor
+BOARD_SUPER_PARTITION_GROUPS := tissot_dynamic_partitions
+BOARD_TISSOT_DYNAMIC_PARTITIONS_SIZE := $(shell expr $(BOARD_SUPER_PARTITION_SIZE) - 4194304 )
+BOARD_TISSOT_DYNAMIC_PARTITIONS_PARTITION_LIST := odm product system system_ext vendor
 
 ifneq ($(WITH_GMS),true)
 BOARD_PRODUCTIMAGE_PARTITION_RESERVED_SIZE := 104857600 # 100 MB
@@ -207,4 +207,4 @@ WIFI_HIDL_UNIFIED_SUPPLICANT_SERVICE_RC_ENTRY := true
 WPA_SUPPLICANT_VERSION := VER_0_8_X
 
 # Inherit from the proprietary version
--include vendor/xiaomi/mido/BoardConfigVendor.mk
+-include vendor/xiaomi/tissot/BoardConfigVendor.mk

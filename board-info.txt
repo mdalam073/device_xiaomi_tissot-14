@@ -1,1 +1,1 @@
-require board=mido
+require board=tissot

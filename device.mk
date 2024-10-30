@@ -164,7 +164,7 @@ PRODUCT_PACKAGES += \
 
 # Consumerir
 PRODUCT_PACKAGES += \
-    android.hardware.ir@1.0-service.xiaomi_mido
+    android.hardware.ir@1.0-service.xiaomi_tissot
 
 # Display
 PRODUCT_PACKAGES += \
@@ -219,7 +219,7 @@ PRODUCT_PACKAGES += \
 
 # Fingerprint
 PRODUCT_PACKAGES += \
-    android.hardware.biometrics.fingerprint@2.1-service.xiaomi_mido \
+    android.hardware.biometrics.fingerprint@2.1-service.xiaomi_tissot \
     fakelogprint \
     libshims_gxfpd
 
@@ -446,7 +446,7 @@ PRODUCT_PACKAGES += \
 
 # Wifi
 PRODUCT_PACKAGES += \
-    android.hardware.wifi@1.0-service.mido \
+    android.hardware.wifi@1.0-service.tissot \
     libcld80211 \
     libwpa_client \
     hostapd \
